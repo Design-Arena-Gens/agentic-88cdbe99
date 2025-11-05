@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhor Horário para Dormir - Baseado em Ciência</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            padding: 40px;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .best-time {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .best-time h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .time-range {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .info-box h4 {
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-box p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .sleep-calculator {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            color: white;
+        }
+
+        .sleep-calculator h3 {
+            color: white;
+            border-left: 4px solid white;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        button {
+            background: white;
+            color: #f5576c;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .time-range {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 Melhor Horário para Dormir</h1>
+        <p class="subtitle">Baseado em evidências científicas sobre sono e ritmo circadiano</p>
+
+        <div class="best-time">
+            <h2>Horário Ideal</h2>
+            <div class="time-range">22:00 - 23:00</div>
+            <p>Este é o horário recomendado pela ciência para a maioria dos adultos</p>
+        </div>
+
+        <div class="section">
+            <h3>📊 Por Que Este Horário?</h3>
+            <div class="info-box">
+                <h4><span class="emoji">🧬</span>Ritmo Circadiano</h4>
+                <p>Nosso corpo segue um relógio biológico natural de aproximadamente 24 horas. A melatonina (hormônio do sono) começa a ser liberada entre 21:00-22:00, preparando o corpo para dormir.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><span class="emoji">🌡️</span>Temperatura Corporal</h4>
+                <p>A temperatura corporal diminui naturalmente entre 22:00-23:00, facilitando o início do sono. Este é um sinal biológico de que o corpo está pronto para descansar.</p>
+            </div>
+
+            <div class="info-box">
+                <h4><span class="emoji">🧠</span>Ondas Cerebrais</h4>
+                <p>O cérebro produz ondas lentas (delta) mais intensas nas primeiras horas de sono, essenciais para a consolidação da memória e recuperação física.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>✨ Benefícios de Dormir no Horário Certo</h3>
+            <ul>
+                <li><strong>Sono mais profundo e reparador</strong> - Maior produção de ondas de sono profundo</li>
+                <li><strong>Melhor saúde cardiovascular</strong> - Redução da pressão arterial durante a noite</li>
+                <li><strong>Controle hormonal</strong> - Produção adequada de hormônio do crescimento e cortisol</li>
+                <li><strong>Função cognitiva aprimorada</strong> - Melhor memória, concentração e criatividade</li>
+                <li><strong>Sistema imunológico fortalecido</strong> - Maior produção de células de defesa</li>
+                <li><strong>Regulação do metabolismo</strong> - Controle de peso e apetite</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>⏰ Considerações Individuais</h3>
+            <div class="info-box">
+                <p><strong>Cronotipos:</strong> Algumas pessoas são naturalmente "matutinas" (acordam cedo) e outras "vespertinas" (preferem dormir tarde). O ideal é entre 22:00-23:00 para a maioria, mas pode variar:</p>
+                <ul>
+                    <li><strong>Matutinos:</strong> 21:00 - 22:00</li>
+                    <li><strong>Intermediários:</strong> 22:00 - 23:00</li>
+                    <li><strong>Vespertinos:</strong> 23:00 - 00:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>💡 Dicas para Dormir Melhor</h3>
+            <ul>
+                <li>Evite luz azul (celular, computador) 1-2 horas antes de dormir</li>
+                <li>Mantenha o quarto escuro, silencioso e fresco (18-22°C)</li>
+                <li>Evite cafeína após 15:00</li>
+                <li>Faça exercícios, mas não muito tarde (pelo menos 3h antes de dormir)</li>
+                <li>Estabeleça uma rotina relaxante antes de dormir</li>
+                <li>Mantenha horários regulares, mesmo nos fins de semana</li>
+            </ul>
+        </div>
+
+        <div class="sleep-calculator">
+            <h3>🕐 Calculadora de Horário de Despertar</h3>
+            <p style="margin-bottom: 20px;">O sono ocorre em ciclos de 90 minutos. Acordar no final de um ciclo faz você se sentir mais descansado.</p>
+
+            <div class="input-group">
+                <label for="bedtime">Que horas você pretende dormir?</label>
+                <input type="time" id="bedtime" value="22:00">
+            </div>
+
+            <button onclick="calculateWakeTime()">Calcular Melhor Horário para Acordar</button>
+
+            <div class="result" id="result"></div>
+        </div>
+
+        <div class="section" style="margin-top: 30px; text-align: center; color: #666; font-size: 0.9em;">
+            <p>📚 Baseado em pesquisas de cronobiologia e medicina do sono</p>
+            <p style="margin-top: 10px;">Fontes: National Sleep Foundation, American Academy of Sleep Medicine, Journal of Clinical Sleep Medicine</p>
+        </div>
+    </div>
+
+    <script>
+        function calculateWakeTime() {
+            const bedtimeInput = document.getElementById('bedtime').value;
+            if (!bedtimeInput) {
+                alert('Por favor, selecione um horário');
+                return;
+            }
+
+            const [hours, minutes] = bedtimeInput.split(':').map(Number);
+            const bedtime = new Date();
+            bedtime.setHours(hours, minutes, 0);
+
+            // Adiciona 15 minutos para adormecer
+            bedtime.setMinutes(bedtime.getMinutes() + 15);
+
+            const wakeTimes = [];
+            // Calcula 4, 5, 6 ciclos (6h, 7.5h, 9h de sono)
+            [4, 5, 6].forEach(cycles => {
+                const wakeTime = new Date(bedtime);
+                wakeTime.setMinutes(wakeTime.getMinutes() + (cycles * 90));
+
+                const hoursStr = String(wakeTime.getHours()).padStart(2, '0');
+                const minutesStr = String(wakeTime.getMinutes()).padStart(2, '0');
+                const totalHours = cycles * 1.5;
+
+                wakeTimes.push({
+                    time: `${hoursStr}:${minutesStr}`,
+                    hours: totalHours,
+                    cycles: cycles
+                });
+            });
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h4 style="color: #f5576c; margin-bottom: 15px;">⏰ Melhores horários para acordar:</h4>
+                <p style="margin-bottom: 15px;"><strong>${wakeTimes[0].time}</strong> (${wakeTimes[0].hours}h de sono - ${wakeTimes[0].cycles} ciclos) - Mínimo recomendado</p>
+                <p style="margin-bottom: 15px;"><strong>${wakeTimes[1].time}</strong> (${wakeTimes[1].hours}h de sono - ${wakeTimes[1].cycles} ciclos) - ⭐ Ideal para maioria dos adultos</p>
+                <p><strong>${wakeTimes[2].time}</strong> (${wakeTimes[2].hours}h de sono - ${wakeTimes[2].cycles} ciclos) - Ótimo para recuperação</p>
+                <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                    💤 Nota: Consideramos 15 minutos para você adormecer após deitar.
+                </p>
+            `;
+            resultDiv.classList.add('show');
+        }
+
+        // Set current time as default if between 20:00 and 01:00
+        window.addEventListener('load', () => {
+            const now = new Date();
+            const hours = now.getHours();
+            if (hours >= 20 || hours <= 1) {
+                const currentTime = `${String(hours).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+                document.getElementById('bedtime').value = currentTime;
+            }
+        });
+    </script>
+</body>
+</html>
